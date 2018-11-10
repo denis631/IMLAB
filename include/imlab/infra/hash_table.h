@@ -9,8 +9,8 @@
 #include <vector>
 #include <iterator>
 #include <limits>
-#include "../../../include/imlab/infra/hash.h"
-#include "../../../include/imlab/infra/bits.h"
+#include "imlab/infra/hash.h"
+#include "imlab/infra/bits.h"
 // ---------------------------------------------------------------------------
 namespace imlab {
 //---------------------------------------------------------------------------

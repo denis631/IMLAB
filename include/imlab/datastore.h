@@ -9,12 +9,12 @@
 #include <map>
 #include <string>
 #include <unordered_map>
-#include "../../include/imlab/algebra/iu.h"
-#include "../../include/imlab/infra/types.h"
-#include "../../include/imlab/infra/hash.h"
-#include "../../include/imlab/schema/schema_parse_context.h"
-#include "../../include/imlab/schema/schema_compiler.h"
-#include "../../include/stx/btree_map.h"
+#include "imlab/algebra/iu.h"
+#include "imlab/infra/types.h"
+#include "imlab/infra/hash.h"
+#include "imlab/schema/schema_parse_context.h"
+#include "imlab/schema/schema_compiler.h"
+#include "stx/btree_map.h"
 
 typedef size_t tid_t;
 

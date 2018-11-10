@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/imlab/database.h"
-#include "../../include/imlab/infra/hash_table.h"
+#include "imlab/database.h"
+#include "imlab/infra/hash_table.h"
 
 using namespace imlab;
 

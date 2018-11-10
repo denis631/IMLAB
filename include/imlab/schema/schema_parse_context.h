@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
-#include "../../../include/imlab/schema/schema.h"
+#include "imlab/schema/schema.h"
 // ---------------------------------------------------------------------------------------------------
 namespace imlab {
 // ---------------------------------------------------------------------------------------------------

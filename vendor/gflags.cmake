@@ -25,7 +25,7 @@ ExternalProject_Get_Property(gflags_src install_dir)
 set(GFLAGS_INCLUDE_DIR ${install_dir}/include)
 set(GFLAGS_LIBRARY_PATH ${install_dir}/lib/libgflags.a)
 file(MAKE_DIRECTORY ${GFLAGS_INCLUDE_DIR})
-add_library(gflags STATIC IMPORTED ../include/imlab/query/queryc.h)
+add_library(gflags STATIC IMPORTED ../include/imlab/query/query_parse_context.h)
 set_property(TARGET gflags PROPERTY IMPORTED_LOCATION ${GFLAGS_LIBRARY_PATH})
 set_property(TARGET gflags APPEND PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${GFLAGS_INCLUDE_DIR})
 

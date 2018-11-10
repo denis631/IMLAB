@@ -4,7 +4,7 @@
 #ifndef INCLUDE_IMLAB_SCHEMA_SCHEMA_COMPILER_H_
 #define INCLUDE_IMLAB_SCHEMA_SCHEMA_COMPILER_H_
 // ---------------------------------------------------------------------------------------------------
-#include "../../../include/imlab/schema/schema_parse_context.h"
+#include "imlab/schema/schema_parse_context.h"
 #include <ostream>
 // ---------------------------------------------------------------------------------------------------
 namespace imlab {

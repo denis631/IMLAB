@@ -10,9 +10,9 @@
 #include <array>
 #include <memory>
 #include <unordered_map>
-#include "../../include/imlab/infra/types.h"
-#include "../../include/imlab/infra/hash.h"
-#include "../../include/imlab/datastore.h"
+#include "imlab/infra/types.h"
+#include "imlab/infra/hash.h"
+#include "imlab/datastore.h"
 
 namespace imlab {
 

@@ -15,7 +15,7 @@ file(GLOB_RECURSE TOOLS_SRC "tools/imlabdb.cc")
 # Executables
 # ---------------------------------------------------------------------------
 
-add_executable(imlabdb tools/imlabdb.cc tools/queryc/queryc.cc tools/queryc/queryParser.cc ${INCLUDE_H})
+add_executable(imlabdb tools/imlabdb.cc ${QUERYC_CC})
 target_link_libraries(imlabdb imlab gflags Threads::Threads)
 
 # ---------------------------------------------------------------------------

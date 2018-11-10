@@ -8,7 +8,7 @@
 #include <utility>
 #include <string>
 #include <sstream>
-#include "../../../include/imlab/infra/types.h"
+#include "imlab/infra/types.h"
 // ---------------------------------------------------------------------------
 namespace imlab {
 // ---------------------------------------------------------------------------

@@ -12,9 +12,10 @@
 #include <iostream>
 #include <fstream>
 #include <dlfcn.h>
-#include <imlab/query/queryParser.h>
 #include "imlab/database.h"
-#include "imlab/query/queryc.h"
+#include "imlab/query/query.h"
+#include "imlab/infra/types.h"
+
 
 using Integer = imlab::Integer;
 using Date = imlab::Date;
@@ -23,13 +24,14 @@ template <unsigned MaxLen>                  using Char = imlab::Char<MaxLen>;
 template <unsigned MaxLen>                  using Varchar = imlab::Varchar<MaxLen>;
 template <unsigned Len, unsigned Precision> using Numeric = imlab::Numeric<Len, Precision>;
 
+namespace imlab {
 class QueryREPL {
 public:
-    explicit QueryREPL(imlab::Database &db) : db(&db) {}
+    explicit QueryREPL(Database &db) : db(&db) {}
 
     void ExecuteCompiledQuery() {
         void *handle = dlopen(COMPILED_QUERY_LIB, RTLD_NOW);
-        void (*queryFunction)(imlab::Database &) = nullptr;
+        void (*queryFunction)(Database &) = nullptr;
 
         if (handle) {
             queryFunction = reinterpret_cast<void (*)(imlab::Database &)>(dlsym(handle, COMPILED_QUERY_FUNCTION_NAME));
@@ -51,18 +53,14 @@ public:
     }
 
     void Start() {
-        std::string rawQueryString = readInput();
-        imlab::QueryParser queryParser;
-        imlab::QueryCompiler queryCompiler;
+        auto rawQueryString = readInput();
+        QueryCompiler queryCompiler;
 
         std::string path = "../src/query/tmp_queryc.cc";
 
         do {
-            auto parsedSQLStatement = queryParser.Parse(rawQueryString);
-            auto algebraTree = queryCompiler.ConstructAlgebraTree(parsedSQLStatement);
-            queryCompiler.Compile(std::move(algebraTree), path);
+            queryCompiler.Compile(rawQueryString, path);
             ExecuteCompiledQuery();
-
             rawQueryString = readInput();
         } while(!rawQueryString.empty());
     }
@@ -77,8 +75,9 @@ private:
         return input;
     }
 
-    imlab::Database *db;
+    Database *db;
 };
+}
 
 int main(int argc, char *argv[]) {
     imlab::Database db;
@@ -116,7 +115,7 @@ int main(int argc, char *argv[]) {
     db.LoadOrderLine(tpcc_orderline);
     db.LoadWarehouse(tpcc_warehouse);
 
-    QueryREPL repl(db);
+    imlab::QueryREPL repl(db);
     repl.Start();
 
     return EXIT_SUCCESS;

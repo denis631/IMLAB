@@ -21,9 +21,12 @@ namespace imlab {
         std::vector<std::pair<const IU *, std::string>> selectPredicates{};
     };
 
-    struct QueryCompiler {
-        auto Compile(std::unique_ptr<imlab::Print> algebraTreeRoot, std::string &path) -> void;
-        auto ConstructAlgebraTree(imlab::SelectStatement &selectStatement) -> std::unique_ptr<imlab::Print>;
+    class QueryCompiler {
+    public:
+        auto Compile(std::string &in, std::string &path) -> void;
+
+    private:
+        auto ConstructAlgebraTree(SelectStatement &selectStatement) -> std::unique_ptr<Print>;
     };
 }
 

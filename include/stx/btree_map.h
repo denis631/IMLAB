@@ -34,7 +34,7 @@
 #ifndef _STX_BTREE_MAP_H_
 #define _STX_BTREE_MAP_H_
 
-#include "../../include/stx/btree.h"
+#include <stx/btree.h>
 
 namespace stx {
 
