@@ -41,6 +41,15 @@ public:
     // Trace the parsing
     bool trace_parsing_;
 };
+
+class QueryCompiler {
+public:
+    auto Compile(std::string &in, std::string &path) -> void;
+
+    QueryParseContext parseContext;
+private:
+    auto ConstructAlgebraTree(SelectStatement &selectStatement) -> std::unique_ptr<Print>;
+};
 }
 
 #endif //PROJECT_QUERY_PARSE_CONTEXT_H

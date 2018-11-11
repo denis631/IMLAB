@@ -14,10 +14,7 @@
 
 namespace imlab {
     void QueryCompiler::Compile(std::string &in, std::string &path) {
-
-        QueryParseContext parseContext(false, false);
         std::stringstream inputStream(in);
-
         auto selectStatement = parseContext.Parse(inputStream);
         auto algebraTreeRoot = ConstructAlgebraTree(selectStatement);
 

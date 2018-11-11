@@ -20,14 +20,6 @@ namespace imlab {
         std::vector<std::pair<const IU *, const IU *>> joinPredicates{};
         std::vector<std::pair<const IU *, std::string>> selectPredicates{};
     };
-
-    class QueryCompiler {
-    public:
-        auto Compile(std::string &in, std::string &path) -> void;
-
-    private:
-        auto ConstructAlgebraTree(SelectStatement &selectStatement) -> std::unique_ptr<Print>;
-    };
 }
 
 #endif //PROJECT_QUERYC_H

@@ -54,10 +54,12 @@ imlab::QueryParser::symbol_type yylex(imlab::QueryParseContext& qc);
 %token INTEGER          "integer"
 %token EOF 0            "eof"
 // ---------------------------------------------------------------------------------------------------
-%type <std::string> value;
-%type <std::pair<std::string, std::string>> predicate;
-%type <std::vector<std::pair<std::string, std::string>>> predicate_list;
+%type <std::vector<std::string>> attribute_list;
+%type <std::vector<std::string>> table_list;
 %type <std::vector<std::string>> identifier_list;
+%type <std::vector<std::pair<std::string, std::string>>> predicate_list;
+%type <std::pair<std::string, std::string>> predicate;
+%type <std::string> constant;
 // ---------------------------------------------------------------------------------------------------
 // Tracing code that is called whenever a symbol is reported
 %printer { for(int i = 0; i < $$.size(); ++i) { yyoutput << ((i > 0) ? ", " : "") << $$[i]; }} <std::vector<std::string>>;
@@ -68,7 +70,15 @@ imlab::QueryParser::symbol_type yylex(imlab::QueryParseContext& qc);
 %start statement;
 
 statement:
-    SELECT identifier_list FROM identifier_list WHERE predicate_list SEMICOLON  { qc.buildAlgebraTree($2, $4, $6); }
+    SELECT attribute_list FROM table_list WHERE predicate_list SEMICOLON  { qc.buildAlgebraTree($2, $4, $6); }
+;
+
+attribute_list:
+    identifier_list                       { $$ = $1; }
+;
+
+table_list:
+    identifier_list                       { $$ = $1; }
 ;
 
 identifier_list:
@@ -83,10 +93,10 @@ predicate_list:
 ;
 
 predicate:
-    IDENTIFIER EQ value                   { $$ = std::pair<std::string, std::string>{$1, $3}; }
+    IDENTIFIER EQ constant                { $$ = std::pair<std::string, std::string>{$1, $3}; }
 ;
 
-value:
+constant:
     IDENTIFIER                            { $$ = $1; }
   | SQ IDENTIFIER SQ                      {
                                             std::ostringstream stringStream;

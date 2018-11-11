@@ -246,20 +246,22 @@ namespace  imlab  {
         value.copy< int > (that.value);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.copy< std::pair<std::string, std::string> > (that.value);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.copy< std::string > (that.value);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.copy< std::vector<std::pair<std::string, std::string>> > (that.value);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.copy< std::vector<std::string> > (that.value);
         break;
 
@@ -278,20 +280,22 @@ namespace  imlab  {
         value.move< int > (that.value);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.move< std::pair<std::string, std::string> > (that.value);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.move< std::string > (that.value);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.move< std::vector<std::pair<std::string, std::string>> > (that.value);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.move< std::vector<std::string> > (that.value);
         break;
 
@@ -313,20 +317,22 @@ namespace  imlab  {
         value.copy< int > (that.value);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.copy< std::pair<std::string, std::string> > (that.value);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.copy< std::string > (that.value);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.copy< std::vector<std::pair<std::string, std::string>> > (that.value);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.copy< std::vector<std::string> > (that.value);
         break;
 
@@ -365,11 +371,25 @@ namespace  imlab  {
         << yysym.location << ": ";
     switch (yytype)
     {
-            case 16: // identifier_list
+            case 16: // attribute_list
 
-#line 63 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:635
+#line 65 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:635
         { for(int i = 0; i < yysym.value.template as< std::vector<std::string> > ().size(); ++i) { yyoutput << ((i > 0) ? ", " : "") << yysym.value.template as< std::vector<std::string> > ()[i]; }}
-#line 373 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:635
+#line 379 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:635
+        break;
+
+      case 17: // table_list
+
+#line 65 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:635
+        { for(int i = 0; i < yysym.value.template as< std::vector<std::string> > ().size(); ++i) { yyoutput << ((i > 0) ? ", " : "") << yysym.value.template as< std::vector<std::string> > ()[i]; }}
+#line 386 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:635
+        break;
+
+      case 18: // identifier_list
+
+#line 65 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:635
+        { for(int i = 0; i < yysym.value.template as< std::vector<std::string> > ().size(); ++i) { yyoutput << ((i > 0) ? ", " : "") << yysym.value.template as< std::vector<std::string> > ()[i]; }}
+#line 393 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:635
         break;
 
 
@@ -570,20 +590,22 @@ namespace  imlab  {
         yylhs.value.build< int > ();
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         yylhs.value.build< std::pair<std::string, std::string> > ();
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         yylhs.value.build< std::string > ();
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         yylhs.value.build< std::vector<std::pair<std::string, std::string>> > ();
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         yylhs.value.build< std::vector<std::string> > ();
         break;
 
@@ -606,65 +628,77 @@ namespace  imlab  {
           switch (yyn)
             {
   case 2:
-#line 71 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+#line 73 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
     { qc.buildAlgebraTree(yystack_[5].value.as< std::vector<std::string> > (), yystack_[3].value.as< std::vector<std::string> > (), yystack_[1].value.as< std::vector<std::pair<std::string, std::string>> > ()); }
-#line 612 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 634 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 3:
-#line 75 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yystack_[2].value.as< std::vector<std::string> > ().push_back(yystack_[0].value.as< std::string > ()); std::swap(yylhs.value.as< std::vector<std::string> > (), yystack_[2].value.as< std::vector<std::string> > ()); }
-#line 618 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 77 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::vector<std::string> > () = yystack_[0].value.as< std::vector<std::string> > (); }
+#line 640 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 4:
-#line 76 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yylhs.value.as< std::vector<std::string> > () = std::vector<std::string>{yystack_[0].value.as< std::string > ()};   }
-#line 624 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 81 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::vector<std::string> > () = yystack_[0].value.as< std::vector<std::string> > (); }
+#line 646 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 5:
-#line 80 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yystack_[2].value.as< std::vector<std::pair<std::string, std::string>> > ().push_back(yystack_[0].value.as< std::pair<std::string, std::string> > ()); std::swap(yylhs.value.as< std::vector<std::pair<std::string, std::string>> > (), yystack_[2].value.as< std::vector<std::pair<std::string, std::string>> > ()); }
-#line 630 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 85 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yystack_[2].value.as< std::vector<std::string> > ().push_back(yystack_[0].value.as< std::string > ()); std::swap(yylhs.value.as< std::vector<std::string> > (), yystack_[2].value.as< std::vector<std::string> > ()); }
+#line 652 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 6:
-#line 81 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yylhs.value.as< std::vector<std::pair<std::string, std::string>> > () = std::vector<std::pair<std::string, std::string>>{yystack_[0].value.as< std::pair<std::string, std::string> > ()}; }
-#line 636 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 86 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::vector<std::string> > () = std::vector<std::string>{yystack_[0].value.as< std::string > ()};   }
+#line 658 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 7:
-#line 82 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yylhs.value.as< std::vector<std::pair<std::string, std::string>> > () = std::vector<std::pair<std::string, std::string>>();   }
-#line 642 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 90 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yystack_[2].value.as< std::vector<std::pair<std::string, std::string>> > ().push_back(yystack_[0].value.as< std::pair<std::string, std::string> > ()); std::swap(yylhs.value.as< std::vector<std::pair<std::string, std::string>> > (), yystack_[2].value.as< std::vector<std::pair<std::string, std::string>> > ()); }
+#line 664 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 8:
-#line 86 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yylhs.value.as< std::pair<std::string, std::string> > () = std::pair<std::string, std::string>{yystack_[2].value.as< std::string > (), yystack_[0].value.as< std::string > ()}; }
-#line 648 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 91 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::vector<std::pair<std::string, std::string>> > () = std::vector<std::pair<std::string, std::string>>{yystack_[0].value.as< std::pair<std::string, std::string> > ()}; }
+#line 670 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 9:
-#line 90 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
-    { yylhs.value.as< std::string > () = yystack_[0].value.as< std::string > (); }
-#line 654 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 92 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::vector<std::pair<std::string, std::string>> > () = std::vector<std::pair<std::string, std::string>>();   }
+#line 676 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
   case 10:
-#line 91 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+#line 96 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::pair<std::string, std::string> > () = std::pair<std::string, std::string>{yystack_[2].value.as< std::string > (), yystack_[0].value.as< std::string > ()}; }
+#line 682 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+    break;
+
+  case 11:
+#line 100 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::string > () = yystack_[0].value.as< std::string > (); }
+#line 688 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+    break;
+
+  case 12:
+#line 101 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
     {
                                             std::ostringstream stringStream;
                                             stringStream << "\"" << yystack_[1].value.as< std::string > () << "\"";
                                             yylhs.value.as< std::string > () = stringStream.str();
                                           }
-#line 664 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 698 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
 
-#line 668 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 702 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
             default:
               break;
             }
@@ -918,72 +952,72 @@ namespace  imlab  {
   }
 
 
-  const signed char QueryParser::yypact_ninf_ = -8;
+  const signed char QueryParser::yypact_ninf_ = -10;
 
   const signed char QueryParser::yytable_ninf_ = -1;
 
   const signed char
   QueryParser::yypact_[] =
   {
-       1,     5,    10,    -8,    -5,    -8,     7,     5,    -8,    -6,
-       8,     3,    -7,    -8,     2,     8,    -8,    -8,     9,    -8,
-      -8,    11,    -8
+      -2,     0,     6,   -10,    -1,     2,   -10,     0,     5,     1,
+       2,   -10,     8,     3,    -9,   -10,    -3,     8,   -10,   -10,
+       9,   -10,   -10,    10,   -10
   };
 
   const unsigned char
   QueryParser::yydefact_[] =
   {
-       0,     0,     0,     4,     0,     1,     0,     0,     3,     0,
-       7,     0,     0,     6,     0,     0,     2,     9,     0,     8,
-       5,     0,    10
+       0,     0,     0,     6,     0,     3,     1,     0,     0,     0,
+       4,     5,     9,     0,     0,     8,     0,     0,     2,    11,
+       0,    10,     7,     0,    12
   };
 
   const signed char
   QueryParser::yypgoto_[] =
   {
-      -8,    -8,    12,    -8,     0,    -8
+     -10,   -10,   -10,   -10,    11,   -10,    -7,   -10
   };
 
   const signed char
   QueryParser::yydefgoto_[] =
   {
-      -1,     2,     4,    12,    13,    19
+      -1,     2,     4,     9,     5,    14,    15,    21
   };
 
   const unsigned char
   QueryParser::yytable_[] =
   {
-       6,     6,    15,     7,    10,    16,    17,    18,     1,     3,
-       5,     8,    11,    21,    14,    20,    22,     0,     0,     9
+      17,    19,    20,    18,     3,     1,     6,     7,     8,    11,
+      22,    12,    13,    23,    16,    24,     0,     0,    10
   };
 
   const signed char
   QueryParser::yycheck_[] =
   {
-       6,     6,     9,     8,    10,    12,     4,     5,     7,     4,
-       0,     4,     4,     4,    11,    15,     5,    -1,    -1,     7
+       9,     4,     5,    12,     4,     7,     0,     8,     6,     4,
+      17,    10,     4,     4,    11,     5,    -1,    -1,     7
   };
 
   const unsigned char
   QueryParser::yystos_[] =
   {
-       0,     7,    15,     4,    16,     0,     6,     8,     4,    16,
-      10,     4,    17,    18,    11,     9,    12,     4,     5,    19,
-      18,     4,     5
+       0,     7,    15,     4,    16,    18,     0,     8,     6,    17,
+      18,     4,    10,     4,    19,    20,    11,     9,    12,     4,
+       5,    21,    20,     4,     5
   };
 
   const unsigned char
   QueryParser::yyr1_[] =
   {
-       0,    14,    15,    16,    16,    17,    17,    17,    18,    19,
-      19
+       0,    14,    15,    16,    17,    18,    18,    19,    19,    19,
+      20,    21,    21
   };
 
   const unsigned char
   QueryParser::yyr2_[] =
   {
-       0,     2,     7,     3,     1,     3,     1,     0,     3,     1,
-       3
+       0,     2,     7,     1,     1,     3,     1,     3,     1,     0,
+       3,     1,     3
   };
 
 
@@ -996,15 +1030,16 @@ namespace  imlab  {
   "\"eof\"", "error", "$undefined", "\"integer_value\"", "\"identifier\"",
   "\"single_quote\"", "\"comma\"", "\"select\"", "\"from\"", "\"and\"",
   "\"where\"", "\"equals\"", "\"semicolon\"", "\"integer\"", "$accept",
-  "statement", "identifier_list", "predicate_list", "predicate", "value", YY_NULLPTR
+  "statement", "attribute_list", "table_list", "identifier_list",
+  "predicate_list", "predicate", "constant", YY_NULLPTR
   };
 
 #if YYDEBUG
   const unsigned char
   QueryParser::yyrline_[] =
   {
-       0,    71,    71,    75,    76,    80,    81,    82,    86,    90,
-      91
+       0,    73,    73,    77,    81,    85,    86,    90,    91,    92,
+      96,   100,   101
   };
 
   // Print the state stack on the debug stream.
@@ -1039,8 +1074,8 @@ namespace  imlab  {
 
 #line 12 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1163
 } //  imlab 
-#line 1043 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:1163
-#line 98 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1164
+#line 1078 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:1163
+#line 108 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1164
 
 // ---------------------------------------------------------------------------------------------------
 // Define error function

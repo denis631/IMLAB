@@ -297,12 +297,14 @@ namespace  imlab  {
       char dummy2[sizeof(std::pair<std::string, std::string>)];
 
       // "identifier"
-      // value
+      // constant
       char dummy3[sizeof(std::string)];
 
       // predicate_list
       char dummy4[sizeof(std::vector<std::pair<std::string, std::string>>)];
 
+      // attribute_list
+      // table_list
       // identifier_list
       char dummy5[sizeof(std::vector<std::string>)];
 };
@@ -708,9 +710,9 @@ namespace  imlab  {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 19,     ///< Last index in yytable_.
-      yynnts_ = 6,  ///< Number of nonterminal symbols.
-      yyfinal_ = 5, ///< Termination state number.
+      yylast_ = 18,     ///< Last index in yytable_.
+      yynnts_ = 8,  ///< Number of nonterminal symbols.
+      yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
       yyntokens_ = 14  ///< Number of tokens.
@@ -793,20 +795,22 @@ namespace  imlab  {
         value.copy< int > (other.value);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.copy< std::pair<std::string, std::string> > (other.value);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.copy< std::string > (other.value);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.copy< std::vector<std::pair<std::string, std::string>> > (other.value);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.copy< std::vector<std::string> > (other.value);
         break;
 
@@ -829,20 +833,22 @@ namespace  imlab  {
         value.copy< int > (v);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.copy< std::pair<std::string, std::string> > (v);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.copy< std::string > (v);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.copy< std::vector<std::pair<std::string, std::string>> > (v);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.copy< std::vector<std::string> > (v);
         break;
 
@@ -924,20 +930,22 @@ namespace  imlab  {
         value.template destroy< int > ();
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.template destroy< std::pair<std::string, std::string> > ();
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.template destroy< std::string > ();
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.template destroy< std::vector<std::pair<std::string, std::string>> > ();
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.template destroy< std::vector<std::string> > ();
         break;
 
@@ -966,20 +974,22 @@ namespace  imlab  {
         value.move< int > (s.value);
         break;
 
-      case 18: // predicate
+      case 20: // predicate
         value.move< std::pair<std::string, std::string> > (s.value);
         break;
 
       case 4: // "identifier"
-      case 19: // value
+      case 21: // constant
         value.move< std::string > (s.value);
         break;
 
-      case 17: // predicate_list
+      case 19: // predicate_list
         value.move< std::vector<std::pair<std::string, std::string>> > (s.value);
         break;
 
-      case 16: // identifier_list
+      case 16: // attribute_list
+      case 17: // table_list
+      case 18: // identifier_list
         value.move< std::vector<std::string> > (s.value);
         break;
 
@@ -1119,7 +1129,7 @@ namespace  imlab  {
 
 #line 12 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:394
 } //  imlab 
-#line 1123 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.h" // lalr1.cc:394
+#line 1133 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.h" // lalr1.cc:394
 
 
 
