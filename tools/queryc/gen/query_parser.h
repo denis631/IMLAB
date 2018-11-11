@@ -710,7 +710,7 @@ namespace  imlab  {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 18,     ///< Last index in yytable_.
+      yylast_ = 22,     ///< Last index in yytable_.
       yynnts_ = 8,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,

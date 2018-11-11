@@ -13,16 +13,8 @@
 #include <fstream>
 #include <dlfcn.h>
 #include "imlab/database.h"
-#include "imlab/query/query.h"
+#include "imlab/query/query_parse_context.h"
 #include "imlab/infra/types.h"
-
-
-using Integer = imlab::Integer;
-using Date = imlab::Date;
-using Timestamp = imlab::Timestamp;
-template <unsigned MaxLen>                  using Char = imlab::Char<MaxLen>;
-template <unsigned MaxLen>                  using Varchar = imlab::Varchar<MaxLen>;
-template <unsigned Len, unsigned Precision> using Numeric = imlab::Numeric<Len, Precision>;
 
 namespace imlab {
 class QueryREPL {

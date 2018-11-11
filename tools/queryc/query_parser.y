@@ -98,6 +98,7 @@ predicate:
 
 constant:
     IDENTIFIER                            { $$ = $1; }
+  | INTEGER_VALUE                         { $$ = std::to_string($1);; }
   | SQ IDENTIFIER SQ                      {
                                             std::ostringstream stringStream;
                                             stringStream << "\"" << $2 << "\"";

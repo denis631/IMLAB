@@ -689,16 +689,22 @@ namespace  imlab  {
 
   case 12:
 #line 101 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
+    { yylhs.value.as< std::string > () = std::to_string(yystack_[0].value.as< int > ());; }
+#line 694 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+    break;
+
+  case 13:
+#line 102 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:856
     {
                                             std::ostringstream stringStream;
                                             stringStream << "\"" << yystack_[1].value.as< std::string > () << "\"";
                                             yylhs.value.as< std::string > () = stringStream.str();
                                           }
-#line 698 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 704 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
     break;
 
 
-#line 702 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
+#line 708 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:856
             default:
               break;
             }
@@ -959,65 +965,67 @@ namespace  imlab  {
   const signed char
   QueryParser::yypact_[] =
   {
-      -2,     0,     6,   -10,    -1,     2,   -10,     0,     5,     1,
-       2,   -10,     8,     3,    -9,   -10,    -3,     8,   -10,   -10,
-       9,   -10,   -10,    10,   -10
+      -6,    -2,     7,   -10,     0,     3,   -10,    -2,     6,     2,
+       3,   -10,     9,     4,    -9,   -10,     1,     9,   -10,   -10,
+     -10,    10,   -10,   -10,    11,   -10
   };
 
   const unsigned char
   QueryParser::yydefact_[] =
   {
        0,     0,     0,     6,     0,     3,     1,     0,     0,     0,
-       4,     5,     9,     0,     0,     8,     0,     0,     2,    11,
-       0,    10,     7,     0,    12
+       4,     5,     9,     0,     0,     8,     0,     0,     2,    12,
+      11,     0,    10,     7,     0,    13
   };
 
   const signed char
   QueryParser::yypgoto_[] =
   {
-     -10,   -10,   -10,   -10,    11,   -10,    -7,   -10
+     -10,   -10,   -10,   -10,    12,   -10,     5,   -10
   };
 
   const signed char
   QueryParser::yydefgoto_[] =
   {
-      -1,     2,     4,     9,     5,    14,    15,    21
+      -1,     2,     4,     9,     5,    14,    15,    22
   };
 
   const unsigned char
   QueryParser::yytable_[] =
   {
-      17,    19,    20,    18,     3,     1,     6,     7,     8,    11,
-      22,    12,    13,    23,    16,    24,     0,     0,    10
+      17,     1,     3,    18,    19,    20,    21,     6,     7,     8,
+      11,     0,    12,    13,    24,    16,    25,     0,     0,    10,
+       0,     0,    23
   };
 
   const signed char
   QueryParser::yycheck_[] =
   {
-       9,     4,     5,    12,     4,     7,     0,     8,     6,     4,
-      17,    10,     4,     4,    11,     5,    -1,    -1,     7
+       9,     7,     4,    12,     3,     4,     5,     0,     8,     6,
+       4,    -1,    10,     4,     4,    11,     5,    -1,    -1,     7,
+      -1,    -1,    17
   };
 
   const unsigned char
   QueryParser::yystos_[] =
   {
        0,     7,    15,     4,    16,    18,     0,     8,     6,    17,
-      18,     4,    10,     4,    19,    20,    11,     9,    12,     4,
-       5,    21,    20,     4,     5
+      18,     4,    10,     4,    19,    20,    11,     9,    12,     3,
+       4,     5,    21,    20,     4,     5
   };
 
   const unsigned char
   QueryParser::yyr1_[] =
   {
        0,    14,    15,    16,    17,    18,    18,    19,    19,    19,
-      20,    21,    21
+      20,    21,    21,    21
   };
 
   const unsigned char
   QueryParser::yyr2_[] =
   {
        0,     2,     7,     1,     1,     3,     1,     3,     1,     0,
-       3,     1,     3
+       3,     1,     1,     3
   };
 
 
@@ -1039,7 +1047,7 @@ namespace  imlab  {
   QueryParser::yyrline_[] =
   {
        0,    73,    73,    77,    81,    85,    86,    90,    91,    92,
-      96,   100,   101
+      96,   100,   101,   102
   };
 
   // Print the state stack on the debug stream.
@@ -1074,8 +1082,8 @@ namespace  imlab  {
 
 #line 12 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1163
 } //  imlab 
-#line 1078 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:1163
-#line 108 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1164
+#line 1086 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/gen/query_parser.cc" // lalr1.cc:1163
+#line 109 "/Users/denis.g/Developer/Databases/InMemoryDB/tools/queryc/query_parser.y" // lalr1.cc:1164
 
 // ---------------------------------------------------------------------------------------------------
 // Define error function
