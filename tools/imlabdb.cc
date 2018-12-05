@@ -39,9 +39,9 @@ public:
         }
 
         // delete generated library
-        std::stringstream stream;
-        stream << "rm ../cmake-build-debug/" << COMPILED_QUERY_LIB;
-        std::system(stream.str().c_str());
+//        std::stringstream stream;
+//        stream << "rm ../cmake-build-debug/" << COMPILED_QUERY_LIB;
+//        std::system(stream.str().c_str());
     }
 
     void Start() {
